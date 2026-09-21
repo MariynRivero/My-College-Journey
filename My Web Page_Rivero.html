@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My College Journey</title>
+
+
+    <style>
+
+          /* BASIC SETTINGS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #080808;
+
+            color: white;
+
+            min-height: 100vh;
+        }
+
+
+        /* HEADER */
+
+        header {
+
+            height: 90px;
+
+            background: #050505;
+
+            border-bottom: 2px solid #ff1493;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 50px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 999;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            color: white;
+
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+
+            color: #ff1493;
+        }
+
+
+          /* NAVIGATION */
+
+        nav {
+
+            display: flex;
+
+            gap: 10px;
+        }
+
+
+        nav button {
+
+            background: transparent;
+
+            border: none;
+
+            color: white;
+
+            padding: 14px 18px;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+            border-radius: 5px;
+
+            transition: 0.3s;
+        }
+
+
+        nav button:hover {
+
+            color: #ff1493;
+
+            background: #1b1b1b;
+        }
+
+
+        nav button.active {
+
+            background: #ff1493;
+
+            color: white;
+
+            box-shadow: 0 0 15px rgba(255,20,147,0.5);
+        }
+
+
+          /* MAIN CONTENT */
+
+        main {
+
+            min-height: calc(100vh - 150px);
+        }
+
+
+          /* FOR PAGES */
+
+        .page {
+
+            display: none;
+
+            min-height: calc(100vh - 150px);
+
+            padding: 70px 10%;
+
+            animation: fadeIn 0.5s ease;
+        }
+
+
+        .page.active {
+
+            display: block;
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(15px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+          /* HOME PAGE */
+
+        #home {
+
+            min-height: calc(100vh - 150px);
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+
+            linear-gradient(
+                rgba(0,0,0,0.65),
+                rgba(0,0,0,0.90)
+            ),
+
+            url("ptc-building.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+        }
+
+
+        #home.active {
+
+            display: flex;
+        }
+
+
+        .home-content {
+
+            max-width: 900px;
+        }
+
+
+        .small-title {
+
+            color: #ff69b4;
+
+            font-size: 18px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .home-content h1 {
+
+            font-size: 70px;
+
+            color: #ff1493;
+
+            text-shadow:
+
+                0 0 10px #ff1493,
+
+                0 0 25px #ff1493,
+
+                0 0 40px #ff1493;
+
+            margin-bottom: 15px;
+        }
+
+
+        .home-content h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .home-content p {
+
+            font-size: 19px;
+
+            margin: 8px 0;
+        }
+
+
+        .tagline {
+
+            color: #ff69b4;
+
+            font-style: italic;
+
+            margin-top: 25px !important;
+        }
+
+
+        .home-button {
+
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding: 15px 35px;
+
+            background: #ff1493;
+
+            color: white;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            border: none;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+        }
+
+
+        .home-button:hover {
+
+            background: white;
+
+            color: #ff1493;
+
+            transform: scale(1.05);
+        }
+
+
+          /* SECTION TITLE */
+
+        .section-title {
+
+            text-align: center;
+
+            color: #ff1493;
+
+            font-size: 45px;
+
+            margin-bottom: 50px;
+
+            text-shadow:
+
+                0 0 10px rgba(255,20,147,0.5);
+        }
+
+
+          /* ABOUT ME */
+
+        .about-container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 60px;
+        }
+
+
+        .profile-photo {
+
+            width: 330px;
+
+            height: 400px;
+
+            object-fit: cover;
+
+            border: 5px solid #ff1493;
+
+            border-radius: 20px;
+
+            box-shadow:
+
+                0 0 30px rgba(255,20,147,0.4);
+        }
+
+
+        .about-text {
+
+            flex: 1;
+        }
+
+
+        .about-text h2 {
+
+            color: #ff69b4;
+
+            font-size: 35px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .about-text p {
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+        }
+
+
+        .information {
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            background: #151515;
+
+            border-left: 5px solid #ff1493;
+
+            border-radius: 10px;
+        }
+
+
+        .information p {
+
+            margin: 8px 0;
+
+            font-size: 16px;
+        }
+
+
+          /* COLLEGE LIFE */
+
+        #college {
+
+            background: #f7d6e9;
+
+            color: #111;
+        }
+
+
+        #college .section-title {
+
+            color: #d60072;
+        }
+
+
+        .college-container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+
+            align-items: center;
+        }
+
+
+        .college-text h2 {
+
+            color: #d60072;
+
+            font-size: 35px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .college-text p {
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            margin-bottom: 20px;
+        }
+
+
+        .college-photo {
+
+            width: 100%;
+
+            max-height: 500px;
+
+            object-fit: cover;
+
+            border: 8px solid white;
+
+            border-radius: 15px;
+
+            box-shadow:
+
+                12px 12px 0 #ff1493;
+
+            transform: rotate(2deg);
+        }
+
+
+        .quote {
+
+            background: #111;
+
+            color: white;
+
+            padding: 25px;
+
+            border-left: 5px solid #ff1493;
+
+            border-radius: 10px;
+
+            font-style: italic;
+        }
+
+
+          /* ACHIEVEMENTS */
+
+        .achievement-container {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .achievement-card {
+
+            background: #151515;
+
+            border: 1px solid #ff1493;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .achievement-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow:
+
+                0 0 25px rgba(255,20,147,0.4);
+        }
+
+
+        .achievement-icon {
+
+            font-size: 40px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .achievement-card h3 {
+
+            color: #ff1493;
+
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .achievement-card p {
+
+            color: #ddd;
+
+            line-height: 1.6;
+        }
+
+
+          /* GALLERY */
+
+        .gallery-container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .gallery-item {
+
+            background: white;
+
+            padding: 10px;
+
+            border-radius: 5px;
+
+            box-shadow:
+
+                8px 8px 0 #ff1493;
+
+            transition: 0.3s;
+        }
+
+
+        .gallery-item:hover {
+
+            transform: translateY(-8px)
+                       rotate(1deg);
+        }
+
+
+        .gallery-item img {
+
+            width: 100%;
+
+            height: 250px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        .gallery-caption {
+
+            color: #111;
+
+            text-align: center;
+
+            padding: 12px 5px;
+
+            font-weight: bold;
+        }
+
+
+          /* CONTACT */
+
+        .contact-container {
+
+            max-width: 800px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        .contact-container h2 {
+
+            color: #ff69b4;
+
+            font-size: 35px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .contact-container p {
+
+            font-size: 18px;
+
+            margin: 10px;
+        }
+
+
+        .contact-box {
+
+            background: #151515;
+
+            border: 1px solid #ff1493;
+
+            border-radius: 15px;
+
+            padding: 35px;
+
+            margin-top: 30px;
+        }
+
+
+        .contact-button {
+
+            display: inline-block;
+
+            margin: 10px;
+
+            padding: 13px 25px;
+
+            background: #ff1493;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 25px;
+
+            transition: 0.3s;
+        }
+
+
+        .contact-button:hover {
+
+            background: white;
+
+            color: #ff1493;
+        }
+
+
+          /* FOOTER */
+
+        footer {
+
+            height: 60px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #ff1493;
+
+            color: white;
+
+            font-weight: bold;
+        }
+
+
+          /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            header {
+
+                height: auto;
+
+                padding: 20px;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+
+            nav button {
+
+                padding: 10px;
+
+                font-size: 13px;
+            }
+
+
+            .home-content h1 {
+
+                font-size: 45px;
+            }
+
+
+            .about-container {
+
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+
+            .college-container {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .achievement-container {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .gallery-container {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- For Header Menu -->
+
+<header>
+
+    <div class="logo">
+
+        MY <span>JOURNEY</span> ♡
+
+    </div>
+
+
+    <nav>
+
+        <button
+            class="nav-btn active"
+            onclick="showPage('home', this)">
+
+            🏠 HOME
+
+        </button>
+
+
+        <button
+            class="nav-btn"
+            onclick="showPage('about', this)">
+
+            👤 ABOUT ME
+
+        </button>
+
+
+        <button
+            class="nav-btn"
+            onclick="showPage('college', this)">
+
+            🎓 COLLEGE LIFE
+
+        </button>
+
+
+        <button
+            class="nav-btn"
+            onclick="showPage('achievements', this)">
+
+            🏆 ACHIEVEMENTS
+
+        </button>
+
+
+        <button
+            class="nav-btn"
+            onclick="showPage('gallery', this)">
+
+            📸 GALLERY
+
+        </button>
+
+
+        <button
+            class="nav-btn"
+            onclick="showPage('contact', this)">
+
+            💌 CONTACT
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+<!-- The Main Content -->
+
+
+<main>
+
+
+<!-- Home -->
+
+<section id="home" class="page active">
+
+    <div class="home-content">
+
+        <div class="small-title">
+
+            🖤 WELCOME TO MY PERSONAL PAGE 💗
+
+        </div>
+
+
+        <h1> MY COLLEGE JOURNEY </h1>
+
+
+        <h2> Marilyn Rivero </h2>
+
+
+        <p> Bachelor of Science in Office Administration </p>
+
+
+        <p> Pateros Technological College </p>
+
+
+        <p class="tagline"> "I dream. I Believe. I Survive!" ♡ </p>
+
+
+        <button
+            class="home-button"
+            onclick="showPageById('about')">
+
+            EXPLORE MY JOURNEY ♡
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- About Me -->
+
+<section id="about" class="page">
+
+    <h1 class="section-title"> ♡ ABOUT ME ♡ </h1>
+
+
+    <div class="about-container">
+
+
+        <img src="https://scontent.fcrk4-1.fna.fbcdn.net/v/t39.30808-6/818063844_28330910053239003_8197729799593740600_n.jpg?stp=dst-jpg_tt6&cstp=mx1247x1261&ctp=s1247x1261&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGLyfrfJwpcu4i9N7aP3FNZxlD1vzYH93fGUPW_Ngf3dzh6E_KQEWUS_UkkP6uCoiH1RFYgp86Mlpp7I9iGTS9m&_nc_ohc=UGQ-ofJ4OA0Q7kNvwEV5J1n&_nc_oc=AdqGU5g0fSXSDN4LGCsioSyNQhEsxmIt__M64ngTKaJgvJsA1JDYoaVZcOT0eaYwqH8&_nc_zt=23&_nc_ht=scontent.fcrk4-1.fna&_nc_gid=Ygr1z6s-ThvsrXWTiMDKxw&_nc_ss=7b2a8&oh=00_AQJGjSyM4Nip77_RTV-2B2UPGJcSSBMhIT7BqDBTUsLVfw&oe=6AB4025E"
+            alt="My Photo"
+            class="profile-photo">
+
+        <div class="about-text">
+
+            <h2> Hello! I'm Marilyn Rivero 💗 </h2>
+
+
+            <p> I am a college student taking
+                Bachelor of Science in Office
+                Administration at Pateros
+                Technological College. </p>
+
+
+            <p> My college journey is filled with learning,
+                creating, and making the most out of every
+                opportunity. </p>
+
+
+            <p> Every challenge I experience in
+                college teaches me to become more
+                responsible, hardworking, and
+                confident. </p>
+
+
+            <div class="information">
+
+                <p> 🎓 <strong>Course:</strong>
+                    BS Office Administration </p>
+
+
+                <p> 🏫 <strong>School:</strong>
+                    Pateros Technological College </p>
+
+
+                <p> 📚 <strong>Interests:</strong>
+                    Reading Novels, Music, Travel </p>
+
+
+                <p>  💗 <strong>Goal:</strong>
+                    Finish my degree and become
+                    successful Stenographer </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- College Life -->
+
+<section id="college" class="page">
+
+    <h1 class="section-title"> 🎓 MY COLLEGE LIFE </h1>
+
+
+    <div class="college-container">
+
+
+        <div class="college-text">
+
+            <h2> Learning • Friends • Experiences • Growth </h2>
+
+
+            <p> College life has become one of the
+                most memorable chapters of my life.
+                It gives me opportunities to learn
+                new things, discover my abilities and enhance my skills. </p>
+
+
+            <p> From classroom activities, late-night studies and group projects
+                to school events and fun moments with friends.
+                It's not always easy, but it's definitely one of the
+                most memorable chapters of my life. </p>
+
+
+            <div class="quote">
+
+                "Same campus, different dreams,
+                one unforgettable journey." ♡
+
+            </div>
+
+        </div>
+
+
+        <img
+            src="https://scontent.fcrk4-2.fna.fbcdn.net/v/t39.30808-6/797339007_28331244353205573_4441771407574435882_n.jpg?stp=dst-jpg_tt6&cstp=mx1860x846&ctp=s1860x846&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEo0E17lDdRrWtEh7nxC3rmRMYhMhK5ebdExiEyErl5t5dsX7C0jXUzabSszPqB22CqG_uXwL0ky0M7336uYb6K&_nc_ohc=MLwi1CVwbbcQ7kNvwFd58tN&_nc_oc=AdpNFe47RtagZuUdW0eutab05wL6Z9v2SrkcM3ATPpvxioL7HuavuKIOzSeZ-YFPAV4&_nc_zt=23&_nc_ht=scontent.fcrk4-2.fna&_nc_gid=P1x-LTpmDSnOzzv8toBULQ&_nc_ss=7b2a8&oh=00_AQI8dz_GQcDOMBvMF9ZzjXiXoNht49W3e4x_fCTcCCusOQ&oe=6AB42B42"
+            alt="Pateros Technological College"
+            class="college-photo">
+
+    </div>
+
+</section>
+
+
+
+<!-- Achievements -->
+
+<section id="achievements" class="page">
+
+    <h1 class="section-title"> 🏆 MY ACHIEVEMENTS </h1>
+
+
+    <div class="achievement-container">
+
+
+        <div class="achievement-card">
+
+            <div class="achievement-icon">
+
+                🏆
+
+            </div>
+
+            <h3> Academic Achievements </h3>
+
+            <p> President’s List (A.Y. 2025-2026),
+                Dean’s List ( 1st year to 3rd year),
+                Best in Reserch Paper (A.Y. 2025-2026),
+                and Best in Steno (Advance Shorthand 2024-2025). </p>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <div class="achievement-icon">
+
+                📜
+
+            </div>
+
+            <h3> Certificates & Training </h3>
+
+            <p>
+
+                Accolades 2026 Certificate,
+                Tutor of Tara Basa Program, Congress of Change 2025, and
+                NSTP Completion 2024.
+
+            </p>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <div class="achievement-icon">
+
+                🎤
+
+            </div>
+
+            <h3> School Activities </h3>
+
+            <p> Research Congress 2026 and Stenolympics 2025. </p>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <div class="achievement-icon">
+
+                💻
+
+            </div>
+
+            <h3> Skills Developed </h3>
+
+            <p> Communication, Teamwork,
+                Stenography, Computer skills. </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- Gallery -->
+
+<section id="gallery" class="page">
+
+    <h1 class="section-title"> 📸 MY COLLEGE GALLERY </h1>
+
+
+    <div class="gallery-container">
+
+
+        <div class="gallery-item">
+
+            <img src="https://scontent.fcrk4-2.fna.fbcdn.net/v/t39.30808-6/797339007_28331244353205573_4441771407574435882_n.jpg?stp=dst-jpg_tt6&cstp=mx1860x846&ctp=s1860x846&_nc_cat=103&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEo0E17lDdRrWtEh7nxC3rmRMYhMhK5ebdExiEyErl5t5dsX7C0jXUzabSszPqB22CqG_uXwL0ky0M7336uYb6K&_nc_ohc=MLwi1CVwbbcQ7kNvwFd58tN&_nc_oc=AdpNFe47RtagZuUdW0eutab05wL6Z9v2SrkcM3ATPpvxioL7HuavuKIOzSeZ-YFPAV4&_nc_zt=23&_nc_ht=scontent.fcrk4-2.fna&_nc_gid=eUEGfuxw5XHlt-eUp5nDEA&_nc_ss=7b2a8&oh=00_AQKG6VVNvmioBLLc0pYGXbonOPXjOZTqp6XIU6A_UX25Lg&oe=6AB42B42" alt="PTC Building">
+
+            <div class="gallery-caption">
+
+                🏫 My College
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="https://scontent.fcrk2-2.fna.fbcdn.net/v/t39.30808-6/814453743_28332030133126995_8184041667430580752_n.jpg?stp=dst-jpg_tt6&cstp=mx1448x1086&ctp=s1448x1086&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHvZzLlQDxQ2iSt3OVp0aj0gkMKVsXci6SCQwpWxdyLpE8XS-poLTf4xoiqrsLdgcLYJ0HhGVPIF5TLuB3xS1k_&_nc_ohc=e9gL3aJv-U4Q7kNvwHDfqsD&_nc_oc=AdpOJAUp9lhsf6WY7HshGj0vzi2-pH1cp8yzwcmbY9kwos2fvUIAZ9mk47AvgDR4Sy0&_nc_zt=23&_nc_ht=scontent.fcrk2-2.fna&_nc_gid=cqa7eeKcdUDH_ifie2aOtQ&_nc_ss=7b2a8&oh=00_AQK2_QG1sCEov4ghvTHGg72DIJe2en3XGh0JAcFxh94yJw&oe=6AB42726" alt="College Event">
+
+            <div class="gallery-caption">
+
+                🎓 College Event
+
+            </div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="https://scontent.fcrk2-4.fna.fbcdn.net/v/t39.30808-6/808462599_28331399226523419_5198062429343276754_n.jpg?stp=dst-jpg_tt6&cstp=mx1448x1086&ctp=s1448x1086&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGZt54guigmdq8klZBH72skiDknWfW9yL6IOSdZ9b3IvlBi1xFNXWqKjmEQD_vtpjpGznQXi49s0SzY9F_0YiPE&_nc_ohc=aSIarRYbCn8Q7kNvwFJCKV5&_nc_oc=AdptfA7gL5JRlw54EbumjbRMDSdFlztkDX4RWvuFBJx58oSS5lT75Sr8kGR2o-LhKCs&_nc_zt=23&_nc_ht=scontent.fcrk2-4.fna&_nc_gid=VmctQMexveIEabY7BDpnlw&_nc_ss=7b2a8&oh=00_AQJX74sr7Mdbo-Y9S3xhTI6BA2EfPB-XvWeuf8a9o3RFYw&oe=6AB43794" alt="College Memory">
+
+            <div class="gallery-caption">
+
+                💗 College Memory
+
+            </div>
+
+        </div>
+
+<div class="gallery-item">
+
+            <img src="https://scontent.fcrk2-4.fna.fbcdn.net/v/t39.30808-6/797358482_28332565423073466_1286730612003262330_n.jpg?stp=dst-jpg_tt6&cstp=mx745x1086&ctp=s745x1086&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHhIemfqPkSI6gwWUTJf9PwDhb0eeMcmBIOFvR54xyYEk6fup0pIzTJtzLoJnAuq5MWc87Wcb-6aLo3nSlQKq_D&_nc_ohc=5R6rNfbESH8Q7kNvwFAjXKa&_nc_oc=AdoQu5qM4JdRno9mbKLnGYSOaPpZyX8bx28GfPDwLSeeRY7dWNqYuqT3d_hzlROfFNc&_nc_zt=23&_nc_ht=scontent.fcrk2-4.fna&_nc_gid=RzEcET_aFJSSf23q26Yf4Q&_nc_ss=7b2a8&oh=00_AQJtEwgh_XgDlueNigu1D3Yj0TuTPrnnYLb2VhZggcs1zg&oe=6AB43784" alt="Award">
+
+            <div class="gallery-caption">
+                🏆 Award
+            </div>
+
+        </div>
+       
+
+        <div class="gallery-item">
+
+            <img src="https://scontent.fcrk4-1.fna.fbcdn.net/v/t1.15752-9/462548480_1276832890429875_2974351040487126195_n.jpg?stp=dst-jpg_tt6&cstp=mx1536x2048&ctp=s1536x2048&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGMuHeXbRc3e0kvgXXW-W_XqEaweV28ZUqoRrB5XbxlSmi8EUHkEtNolgK1OTruJ6Dwjed23aEmjKstBc1jpvAI&_nc_ohc=I7cE-b-NcmYQ7kNvwEKg6gV&_nc_oc=Adpl6JOSi3-P4VLeO7jZXcffuwdn_f3VJKNc5WR2gor5pXfxr8uHn3lgHL6lMWBcZdk&_nc_zt=23&_nc_ht=scontent.fcrk4-1.fna&_nc_ss=7b2a8&oh=03_Q7cD6QH7y-FXqwtL-qV_GyI8TrbNqlCbHPVicox5dJ7qI_twYw&oe=6AD5B2CD" alt="My Friends">
+
+            <div class="gallery-caption">
+                👭 My Friends
+            </div>
+
+        </div>
+
+<div class="gallery-item">
+
+            <img src="https://scontent.fcrk2-4.fna.fbcdn.net/v/t39.30808-6/774803703_27887175864279093_556580266317592610_n.jpg?stp=dst-jpg_tt6&cstp=mx2000x1414&ctp=s2000x1414&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF7wylGHr8SAUc48wnVxeXyvMWijO8aoVW8xaKM7xqhVTxnkGYkkG9AWaww1zXQVl2B7Di8uQD7KJvvm1qvsomm&_nc_ohc=yExt3JNmE9kQ7kNvwHFE31_&_nc_oc=AdpYZKZNBaLGQRv0XilOgqWxa3LWknfgjCiMuSRE4JsJ5Z5JxrwuAEXJGzyClXL-muU&_nc_zt=23&_nc_ht=scontent.fcrk2-4.fna&_nc_gid=iUnboOOawq9MLCXjLpM-0Q&_nc_ss=7b2a8&oh=00_AQJQgucasutR9qKRQEZplg0hDItd5X-gGLjmGOBT9Xuz3w&oe=6AB43C70" alt="Accolades">
+
+            <div class="gallery-caption">
+                🏆 Accolades
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- Contact -->
+
+<section id="contact" class="page">
+
+    <h1 class="section-title"> 💌 CONTACT ME </h1>
+
+
+    <div class="contact-container">
+
+        <h2> Thank You for Visiting! ♡ </h2>
+
+
+        <p> This page represents my college
+            journey, experiences, and dreams. </p>
+
+
+        <div class="contact-box">
+
+            <p> 📧 Email:
+                marilyncayundaaa@gmail.com </p>
+
+
+            <p> 📱 Facebook:
+                Riv Marllin </p>
+
+
+            <p> 📸 Instagram:
+                 @mari.rvro </p>
+
+            <br>
+
+            <a
+                href="https://www.facebook.com/marilyn.rivero.71/"
+                class="contact-button">
+
+                Facebook
+
+            </a>
+
+
+            <a
+                href="https://www.instagram.com/mari.rvro/"
+                class="contact-button">
+
+                Instagram
+
+            </a>
+
+
+            <a
+                href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox"
+                class="contact-button">
+
+                Email Me
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- My Footer -->
+
+<footer>
+
+             🖤💗 MY COLLEGE JOURNEY 💗🖤
+<br>
+
+    © 2026 Marilyn Rivero | Pateros Technological College
+</footer>
+
+
+
+<!-- Java Script -->
+
+<script>
+
+
+      /* THIS WILL SHOW PAGE WHEN MENU IS CLICKED */
+
+    function showPage(pageId, clickedButton) {
+
+
+        const pages =
+            document.querySelectorAll(".page");
+
+
+        pages.forEach(function(page) {
+
+            page.classList.remove("active");
+
+        });
+
+
+
+        document
+            .getElementById(pageId)
+            .classList.add("active");
+
+
+
+        const buttons =
+            document.querySelectorAll(".nav-btn");
+
+
+
+        buttons.forEach(function(button) {
+
+            button.classList.remove("active");
+
+        });
+
+
+        if (clickedButton) {
+
+            clickedButton.classList.add("active");
+
+        }
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+
+
+      /* BUTTON FROM HOME PAGE */
+
+    function showPageById(pageId) {
+
+
+        const pages =
+            document.querySelectorAll(".page");
+
+
+        pages.forEach(function(page) {
+
+            page.classList.remove("active");
+
+        });
+
+
+        document
+            .getElementById(pageId)
+            .classList.add("active");
+
+
+        const buttons =
+            document.querySelectorAll(".nav-btn");
+
+
+        buttons.forEach(function(button) {
+
+            button.classList.remove("active");
+
+        });
+
+
+        /* Find About Me button */
+
+        buttons[1].classList.add("active");
+
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
